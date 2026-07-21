@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Contact Us | {{ company_name }}{% endblock %}
+{% block meta_description %}Get in touch with RSFM for a free site survey. Call, email or send an enquiry and our team will respond within one business day.{% endblock %}
+
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i> <span>Contact</span></div>
+    <h1>Contact Us</h1>
+    <p>Tell us about your site and we'll schedule a free survey within one business day.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:flex-start; grid-template-columns: 1fr 1.3fr; gap: var(--sp-5);">
+
+      <div>
+        <div class="contact-info-card" data-reveal>
+          <h3>Get In Touch</h3>
+          <div class="contact-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><strong>Office Address</strong><span>{{ company_address_line1 }}<br>{{ company_address_line2 }}</span></div>
+          </div>
+          <div class="contact-row">
+            <i class="fa-solid fa-phone"></i>
+            <div><strong>Phone</strong>
+              <a href="tel:{{ company_phone }}">{{ company_phone }}</a><br>
+              <a href="tel:{{ company_phone_2 }}">{{ company_phone_2 }}</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <i class="fa-solid fa-envelope"></i>
+            <div><strong>Email</strong><a href="mailto:{{ company_email }}">{{ company_email }}</a></div>
+          </div>
+          <div class="contact-row">
+            <i class="fa-solid fa-clock"></i>
+            <div><strong>Business Hours</strong><span>Control room operates 24x7<br>Office: Mon&ndash;Sat, 9:30 AM&ndash;6:30 PM</span></div>
+          </div>
+          <div class="map-embed">
+            <iframe
+              src="https://maps.google.com/maps?q={{ (company_address_line1 ~ ', ' ~ company_address_line2)|urlencode }}&output=embed"
+              width="100%" height="200" style="border:0;" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="RSFM office location map" tabindex="-1"></iframe>
+            <a class="map-embed-link"
+               href="https://www.google.com/maps/search/?api=1&query={{ (company_address_line1 ~ ', ' ~ company_address_line2)|urlencode }}"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Open {{ company_short }} office location in Google Maps">
+              <span class="map-embed-badge"><i class="fa-solid fa-up-right-from-square"></i> Open in Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <h2 style="margin-bottom:6px;">Send an Enquiry</h2>
+        <p style="margin-bottom:var(--sp-3);">Fields marked <span class="required">*</span> are required.</p>
+
+        <form id="contact-form" action="{{ url_for('contact') }}" method="POST" class="form-grid">
+          <div class="field">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required value="{{ form_data.get('name', '') }}">
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" value="{{ form_data.get('phone', '') }}">
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" value="{{ form_data.get('email', '') }}">
+          </div>
+          <div class="field">
+            <label for="service">Service Required</label>
+            <select id="service" name="service">
+              <option>Static Guarding</option>
+              <option>Night Patrolling</option>
+              <option>Executive Protection</option>
+              <option>Event Security</option>
+              <option>Housekeeping</option>
+              <option>Staff / Manpower Outsourcing</option>
+              <option>Payroll Outsourcing &amp; Compliance</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" required placeholder="Tell us about your site, number of personnel needed, and shift timings...">{{ form_data.get('message', '') }}</textarea>
+          </div>
+          <div class="field full">
+            <button type="submit" class="btn btn-primary btn-block">Submit Enquiry <i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

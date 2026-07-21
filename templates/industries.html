@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Industries We Serve | {{ company_name }}{% endblock %}
+{% block meta_description %}RSFM serves corporate offices, manufacturing units, hospitals, educational institutions, residential communities, logistics companies, event organizers and retail across Bengaluru.{% endblock %}
+
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i> <span>Industries</span></div>
+    <h1>Industries We Serve</h1>
+    <p>Every industry brings different risks and rhythms. Here's how RSFM adapts to each.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% set industries_detail = [
+      ('fa-building','Corporate Offices','Reception management, visitor control and static guarding that reflects the professionalism of your workplace, without disrupting daily operations.'),
+      ('fa-industry','Manufacturing','Perimeter security, gate control, material movement checks and shift-based patrolling suited to factory floors and warehouses.'),
+      ('fa-house-chimney-medical','Hospitals','Calm, trained personnel for access control, patient and visitor management, and round-the-clock vigilance in sensitive environments.'),
+      ('fa-graduation-cap','Educational Institutions','Campus gate security, visitor screening and safety-first protocols appropriate for schools and colleges.'),
+      ('fa-city','Residential Communities','Gated community guarding, visitor logging, night patrolling and quick-response coordination for resident welfare.'),
+      ('fa-truck-fast','Logistics','Loading bay supervision, warehouse security and mobile patrols across yards and distribution centers.'),
+      ('fa-champagne-glasses','Event Organizers','Crowd management, access control and coordinated security teams for corporate functions and public events.'),
+      ('fa-store','Retail','Store-front guarding, loss-prevention support and customer-facing personnel trained in de-escalation.'),
+    ] %}
+    <div class="grid grid-2">
+      {% for icon, name, desc in industries_detail %}
+      <div class="card" data-reveal style="display:flex; gap:var(--sp-3); align-items:flex-start;">
+        <div class="icon-badge" style="flex-shrink:0;"><i class="fa-solid {{ icon }}"></i></div>
+        <div>
+          <h3 style="font-size:18px;">{{ name }}</h3>
+          <p style="margin:0; font-size:14.5px;">{{ desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--navy">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">Trusted By</span>
+      <h2>A Growing Base of Corporate Clients</h2>
+      <p>RSFM currently serves a range of technology, co-working and business clients across Bengaluru.</p>
+    </div>
+    <div class="client-strip">
+      {% for client in ['GoodWorkLabs','GoodWorks Cowork','Unispace Business Center','Aquera Akasa','AEZION','Collab24','Collab Cubicles','Sunovaa','Khanal','Himalayan Natives','Prowork','Hutz','Lead IC Design'] %}
+      <span class="client-chip" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:#fff;">{{ client }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h3>Don't see your industry listed?</h3>
+        <p>We customize our services to specific requirements — tell us about your site.</p>
+      </div>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Talk to Our Team <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

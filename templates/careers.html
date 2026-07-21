@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% block title %}Careers | {{ company_name }}{% endblock %}
+{% block meta_description %}Join RSFM's team of security, housekeeping and supervisory professionals in Bengaluru. View open positions and apply today.{% endblock %}
+
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i> <span>Careers</span></div>
+    <h1>Build Your Career With RSFM</h1>
+    <p>We invest in our people — because our people are our service.</p>
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section class="section">
+  <div class="container split">
+    <div class="split-media">
+      <div class="viewfinder">
+        <span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-06.jpg') }}" alt="RSFM housekeeping and security staff standing together as a team">
+      </div>
+    </div>
+    <div data-reveal>
+      <span class="eyebrow">Why RSFM</span>
+      <h2>We always take care to employ the best people</h2>
+      <p>RSFM believes in developing our people's competence and providing real opportunities for growth. From basic training through management development programs, every employee has a clear path forward.</p>
+      <ul class="checklist">
+        <li><i class="fa-solid fa-circle-check"></i> Comprehensive, PSARA-compliant training from day one</li>
+        <li><i class="fa-solid fa-circle-check"></i> Ongoing refresher and skill-development programs</li>
+        <li><i class="fa-solid fa-circle-check"></i> Clear progression into supervisory and management roles</li>
+        <li><i class="fa-solid fa-circle-check"></i> Uniforms, equipment and site support provided</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">What You Get</span>
+      <h2>Employee Benefits</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="card benefit-card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3 style="font-size:16px;">Structured Training</h3>
+        <p style="font-size:14px;">Basic, refresher and management development programs throughout your career.</p>
+      </div>
+      <div class="card benefit-card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid fa-money-check-dollar"></i></div>
+        <h3 style="font-size:16px;">Timely Payroll</h3>
+        <p style="font-size:14px;">Managed payroll with full statutory compliance, every cycle.</p>
+      </div>
+      <div class="card benefit-card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        <h3 style="font-size:16px;">Career Growth</h3>
+        <p style="font-size:14px;">A clear path from guard to supervisor, inspector and vigilance officer.</p>
+      </div>
+      <div class="card benefit-card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid fa-shirt"></i></div>
+        <h3 style="font-size:16px;">Uniform &amp; Equipment</h3>
+        <p style="font-size:14px;">Provided and maintained so you're always site-ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIRING PROCESS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Hiring Process</span>
+      <h2>From Application to Deployment</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step" data-step="1" data-reveal><h4>Application</h4><p>Submit your details through the form below or visit our office.</p></div>
+      <div class="timeline-step" data-step="2" data-reveal><h4>Background Verification</h4><p>Stringent screening in accordance with company policy.</p></div>
+      <div class="timeline-step" data-step="3" data-reveal><h4>Interview</h4><p>A conversation about the role, your experience and site preferences.</p></div>
+      <div class="timeline-step" data-step="4" data-reveal><h4>Training</h4><p>Comprehensive PSARA-compliant training before any deployment.</p></div>
+      <div class="timeline-step" data-step="5" data-reveal><h4>Deployment</h4><p>Placement at a site matched to your skills, with ongoing supervision and support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN POSITIONS -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Open Positions</span>
+      <h2>Current Openings in Bengaluru</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      {% set jobs = [
+        ('Security Guard','Static Guarding','Bengaluru','Full-time'),
+        ('Lady Security Guard','Static Guarding','Bengaluru','Full-time'),
+        ('Security Supervisor','Operations','Bengaluru','Full-time'),
+        ('Housekeeping Staff','Facility Management','Bengaluru','Full-time'),
+        ('Night Patrol Officer','Mobile Patrol','Bengaluru','Full-time / Night Shift'),
+      ] %}
+      {% for title, dept, loc, type in jobs %}
+      <div class="job-card" data-reveal>
+        <div>
+          <h4>{{ title }}</h4>
+          <div class="job-meta">
+            <span><i class="fa-solid fa-briefcase"></i> {{ dept }}</span>
+            <span><i class="fa-solid fa-location-dot"></i> {{ loc }}</span>
+            <span><i class="fa-solid fa-clock"></i> {{ type }}</span>
+          </div>
+        </div>
+        <a href="#apply" class="btn btn-navy btn-sm">Apply Now</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="section" id="apply">
+  <div class="container" style="max-width: 760px;">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">Apply</span>
+      <h2>Submit Your Application</h2>
+      <p>Fill in your details and our recruitment team will get in touch.</p>
+    </div>
+    <form action="{{ url_for('careers_apply') }}" method="POST" class="form-grid">
+      <div class="field">
+        <label for="applicant_name">Full Name <span class="required">*</span></label>
+        <input type="text" id="applicant_name" name="applicant_name" required>
+      </div>
+      <div class="field">
+        <label for="applicant_phone">Phone Number <span class="required">*</span></label>
+        <input type="tel" id="applicant_phone" name="applicant_phone" required>
+      </div>
+      <div class="field">
+        <label for="applicant_email">Email Address</label>
+        <input type="email" id="applicant_email" name="applicant_email" placeholder="So we can send you a confirmation">
+      </div>
+      <div class="field">
+        <label for="applicant_role">Position Applying For</label>
+        <select id="applicant_role" name="applicant_role">
+          <option>Security Guard</option>
+          <option>Lady Security Guard</option>
+          <option>Security Supervisor</option>
+          <option>Housekeeping Staff</option>
+          <option>Night Patrol Officer</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="applicant_experience">Years of Experience</label>
+        <select id="applicant_experience" name="applicant_experience">
+          <option>Fresher</option>
+          <option>1-2 years</option>
+          <option>3-5 years</option>
+          <option>5+ years</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="applicant_message">Tell us about yourself</label>
+        <textarea id="applicant_message" name="applicant_message" placeholder="Relevant experience, preferred location, availability..."></textarea>
+      </div>
+      <div class="field full">
+        <button type="submit" class="btn btn-primary btn-block">Submit Application <i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

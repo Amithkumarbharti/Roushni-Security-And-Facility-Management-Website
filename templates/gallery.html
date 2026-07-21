@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Gallery | {{ company_name }}{% endblock %}
+{% block meta_description %}A look at RSFM personnel on duty — static guarding, night patrolling, housekeeping and team training across our client sites in Bengaluru.{% endblock %}
+
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i> <span>Gallery</span></div>
+    <h1>Gallery</h1>
+    <p>Our personnel on duty — across residential sites, night shifts, housekeeping and team briefings.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="residential">Residential Sites</button>
+      <button class="filter-btn" data-filter="night-patrol">Night Patrol</button>
+      <button class="filter-btn" data-filter="housekeeping">Housekeeping</button>
+      <button class="filter-btn" data-filter="team">Team &amp; Training</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" data-category="residential" data-reveal>
+        <div class="viewfinder"><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+          <img src="{{ url_for('static', filename='images/staff/team-01.jpg') }}" alt="Four RSFM guards standing on duty outside a residential property, Skanda Avani">
+        </div>
+      </div>
+      <div class="gallery-item tall" data-category="residential" data-reveal>
+        <div class="viewfinder"><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+          <img src="{{ url_for('static', filename='images/staff/team-02.jpg') }}" alt="Three RSFM guards on duty at a residential site with palm trees">
+        </div>
+      </div>
+      <div class="gallery-item tall" data-category="residential" data-reveal>
+        <div class="viewfinder"><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+          <img src="{{ url_for('static', filename='images/staff/team-03.jpg') }}" alt="RSFM lady security guard standing on duty at a residential site">
+        </div>
+      </div>
+      <div class="gallery-item" data-category="night-patrol" data-reveal>
+        <div class="viewfinder"><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+          <img src="{{ url_for('static', filename='images/staff/team-04.jpg') }}" alt="RSFM security team on night patrol duty at a residential site">
+        </div>
+      </div>
+      <div class="gallery-item" data-category="housekeeping" data-reveal>
+        <div class="viewfinder"><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+          <img src="{{ url_for('static', filename='images/staff/team-05.jpg') }}" alt="RSFM housekeeping and pantry staff on duty indoors">
+        </div>
+      </div>
+      <div class="gallery-item" data-category="team" data-reveal>
+        <div class="viewfinder"><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+          <img src="{{ url_for('static', filename='images/staff/team-06.jpg') }}" alt="RSFM housekeeping and security staff lined up on duty in a corridor">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h3>Like what you see?</h3>
+        <p>Get in touch and we'll bring this same standard of discipline to your premises.</p>
+      </div>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Request a Quote <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

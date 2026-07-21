@@ -1,0 +1,130 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Job Applications | Admin | {{ company_short }}{% endblock %}
+{% block admin_content %}
+
+<header class="admin-header">
+  <div class="admin-header-inner">
+    <div class="admin-brand">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="{{ company_short }} logo">
+      <div>
+        <strong>{{ company_short }} Admin</strong>
+        <span>Job Application Management</span>
+      </div>
+    </div>
+    <div class="admin-header-actions">
+      <span class="admin-user"><i class="fa-solid fa-user-shield"></i> {{ session.get('admin_username', 'Admin') }}</span>
+      <a href="{{ url_for('home') }}" class="btn btn-outline btn-sm" style="color:var(--navy-900); border-color:var(--gray-200);">View Site</a>
+      <a href="{{ url_for('admin_logout') }}" class="btn btn-navy btn-sm">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    </div>
+  </div>
+  <div class="admin-tabs">
+    <a href="{{ url_for('admin_dashboard') }}" class="admin-tab"><i class="fa-solid fa-envelope-open-text"></i> Enquiries</a>
+    <a href="{{ url_for('admin_applications') }}" class="admin-tab active"><i class="fa-solid fa-briefcase"></i> Job Applications</a>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <div class="admin-live-note">
+    <i class="fa-solid fa-file-excel"></i>
+    <span>Every application is appended automatically to a live master workbook the instant it's submitted.</span>
+    <a href="{{ url_for('admin_download_live_applications') }}" class="btn btn-sm btn-primary">Download Live Workbook</a>
+  </div>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ 'success' if category == 'success' else 'error' }}">
+          <i class="fa-solid {{ 'fa-circle-check' if category == 'success' else 'fa-circle-exclamation' }}"></i>
+          <span>{{ message }}</span>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <div class="admin-stats">
+    <div class="admin-stat"><strong>{{ total_count }}</strong><span>Total Applications</span></div>
+    {% for status in statuses %}
+    <div class="admin-stat"><strong>{{ status_counts.get(status, 0) }}</strong><span>{{ status }}</span></div>
+    {% endfor %}
+  </div>
+
+  <form method="GET" action="{{ url_for('admin_applications') }}" class="admin-filter-bar">
+    <div class="admin-filter-field">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" name="q" placeholder="Search name, phone, email, message..." value="{{ filters.q }}">
+    </div>
+    <select name="status">
+      <option value="">All Statuses</option>
+      {% for status in statuses %}
+      <option value="{{ status }}" {{ 'selected' if filters.status == status }}>{{ status }}</option>
+      {% endfor %}
+    </select>
+    <select name="role">
+      <option value="">All Positions</option>
+      {% for role in roles %}
+      <option value="{{ role }}" {{ 'selected' if filters.role == role }}>{{ role }}</option>
+      {% endfor %}
+    </select>
+    <input type="date" name="date" value="{{ filters.date }}">
+    <button type="submit" class="btn btn-navy btn-sm">Apply Filters</button>
+    {% if filters.q or filters.status or filters.role or filters.date %}
+    <a href="{{ url_for('admin_applications') }}" class="btn btn-outline btn-sm" style="color:var(--navy-900); border-color:var(--gray-200);">Clear</a>
+    {% endif %}
+    <a href="{{ url_for('admin_export_applications_excel', **filters) }}" class="btn btn-primary btn-sm" style="margin-left:auto;">
+      <i class="fa-solid fa-file-excel"></i> Export to Excel
+    </a>
+  </form>
+
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          {% set sort_fields = [('created_at','Date & Time'),('name','Full Name'),('phone','Phone'),('email','Email'),('role','Position'),('status','Status')] %}
+          {% for field, label in sort_fields %}
+          <th>
+            <a href="{{ url_for('admin_applications', q=filters.q, status=filters.status, role=filters.role, date=filters.date, sort=field, direction=('asc' if (filters.sort == field and filters.direction == 'desc') else 'desc')) }}">
+              {{ label }}
+              {% if filters.sort == field %}
+                <i class="fa-solid {{ 'fa-arrow-down' if filters.direction == 'desc' else 'fa-arrow-up' }}"></i>
+              {% endif %}
+            </a>
+          </th>
+          {% endfor %}
+          <th>Experience</th>
+          <th>Message</th>
+          <th>Update Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for application in applications %}
+        <tr>
+          <td>{{ application.created_at.strftime('%d %b %Y, %I:%M %p') }}</td>
+          <td>{{ application.name }}</td>
+          <td>{{ application.phone or '—' }}</td>
+          <td>{{ application.email or '—' }}</td>
+          <td>{{ application.role or '—' }}</td>
+          <td><span class="status-badge status-{{ application.status|lower|replace(' ', '-') }}">{{ application.status }}</span></td>
+          <td>{{ application.experience or '—' }}</td>
+          <td class="admin-message-cell" title="{{ application.message or '' }}">{{ (application.message or '')[:60] }}{% if application.message and application.message|length > 60 %}…{% endif %}</td>
+          <td>
+            <form method="POST" action="{{ url_for('admin_update_application_status', application_id=application.id) }}" class="admin-status-form">
+              <select name="status">
+                {% for status in statuses %}
+                <option value="{{ status }}" {{ 'selected' if application.status == status }}>{{ status }}</option>
+                {% endfor %}
+              </select>
+              <button type="submit" class="btn btn-sm btn-navy"><i class="fa-solid fa-check"></i></button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="9" class="admin-empty">No applications match your filters.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+{% endblock %}

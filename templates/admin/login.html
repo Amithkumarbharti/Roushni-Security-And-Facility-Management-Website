@@ -1,0 +1,35 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Admin Login | {{ company_short }}{% endblock %}
+{% block admin_content %}
+<div class="admin-login-wrap">
+  <div class="admin-login-card">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="{{ company_short }} logo" class="admin-login-logo">
+    <h1>Admin Login</h1>
+    <p>Sign in to manage enquiries.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ 'success' if category == 'success' else 'error' }}">
+            <i class="fa-solid {{ 'fa-circle-check' if category == 'success' else 'fa-circle-exclamation' }}"></i>
+            <span>{{ message }}</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('admin_login') }}">
+      <div class="field" style="margin-bottom:16px;">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required autofocus>
+      </div>
+      <div class="field" style="margin-bottom:16px;">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Log In <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+    </form>
+    <a href="{{ url_for('home') }}" class="admin-back-link"><i class="fa-solid fa-arrow-left"></i> Back to website</a>
+  </div>
+</div>
+{% endblock %}

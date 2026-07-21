@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Page Not Found | {{ company_name }}{% endblock %}
+{% block content %}
+<div class="error-page">
+  <div>
+    <div class="code">4<span>0</span>4</div>
+    <h2>This post is unmanned</h2>
+    <p style="max-width:420px; margin: 0 auto var(--sp-3);">The page you're looking for has moved, been renamed, or never existed. Let's get you back to a monitored area.</p>
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+{% endblock %}

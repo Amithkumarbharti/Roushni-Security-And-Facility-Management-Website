@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% block title %}{{ company_name }} | Trained Security &amp; Facility Management, Bengaluru{% endblock %}
+{% block meta_description %}RSFM provides trained security guards, night patrolling, housekeeping and staff outsourcing to corporates, residential communities and institutions across Bengaluru. 24x7 quick response.{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-eyebrow"><i class="fa-solid fa-shield-halved"></i> PSARA-Compliant Security Partner</span>
+      <h1>Disciplined security. Dependable facilities. <em>One trusted partner.</em></h1>
+      <p class="lead">Roushni Security &amp; Facility Management supplies trained guards, night patrolling, housekeeping and manpower outsourcing to corporates, residential communities and institutions across Bengaluru — backed by a 24x7 control room.</p>
+      <div class="hero-cta">
+        <a href="{{ url_for('contact') }}" class="btn btn-primary">Request a Free Site Survey <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="{{ url_for('services') }}" class="btn btn-outline">Explore Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>24x7</strong><span>Control Room</span></div>
+        <div class="hero-stat"><strong>13+</strong><span>Corporate Clients</span></div>
+        <div class="hero-stat"><strong>7</strong><span>Core Service Lines</span></div>
+        <div class="hero-stat"><strong>100%</strong><span>PSARA Trained Staff</span></div>
+      </div>
+    </div>
+    <div class="hero-frame">
+      <div class="viewfinder">
+        <span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <span class="vf-tag"><span class="dot"></span> On Duty</span>
+        <img src="{{ url_for('static', filename='images/staff/team-05.jpg') }}" alt="RSFM security team on duty at a client site in the evening">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-item"><i class="fa-solid fa-user-shield"></i><strong>Trained Personnel</strong><span>PSARA-certified guards</span></div>
+    <div class="trust-item"><i class="fa-solid fa-clock"></i><strong>24x7 Response</strong><span>Round-the-clock control room</span></div>
+    <div class="trust-item"><i class="fa-solid fa-clipboard-check"></i><strong>Full Compliance</strong><span>Statutory &amp; legal obligations</span></div>
+    <div class="trust-item"><i class="fa-solid fa-heart"></i><strong>Customer Focus</strong><span>Single point of contact</span></div>
+    <div class="trust-item"><i class="fa-solid fa-building-shield"></i><strong>Proven Track Record</strong><span>Corporate &amp; residential clients</span></div>
+  </div>
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section class="section">
+  <div class="container split">
+    <div class="split-media">
+      <div class="viewfinder">
+        <span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-02.jpg') }}" alt="RSFM security officers standing in formation at a residential site">
+      </div>
+    </div>
+    <div data-reveal>
+      <span class="eyebrow">Who We Are</span>
+      <h2>Emerging as one of Bengaluru's trusted security &amp; facility partners</h2>
+      <p>Roushni Security and Facility Management is emerging as one of the leading security, cleaning and manpower solutions companies in Bangalore, India — focused on Security Services, Night Patrolling, Facility Management, Payroll Outsourcing, Payroll Compliance and Staff Outsourcing.</p>
+      <ul class="checklist">
+        <li><i class="fa-solid fa-circle-check"></i> Extremely stringent selection process in accordance with company policy</li>
+        <li><i class="fa-solid fa-circle-check"></i> Regular and exhaustive training complementing our standard</li>
+        <li><i class="fa-solid fa-circle-check"></i> Great importance placed on quality supervision, round the clock</li>
+        <li><i class="fa-solid fa-circle-check"></i> Emergency response ensured by a state-of-the-art 24-hour control room</li>
+      </ul>
+      <a href="{{ url_for('about') }}" class="btn btn-navy">More About RSFM <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">Our Commitment</span>
+      <h2>Mission &amp; Vision</h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card mission" data-reveal>
+        <i class="fa-solid fa-bullseye"></i>
+        <h3>Mission</h3>
+        <p>"Provide assistance to people, authorities and companies in order to meet their demands for security, cleaning and facility management — as individuals or groups, on an everyday basis."</p>
+      </div>
+      <div class="mv-card vision" data-reveal>
+        <i class="fa-solid fa-eye"></i>
+        <h3>Vision</h3>
+        <p>To be recognised across Bengaluru as the single point of contact for enterprise-grade security and facility management — trusted for discipline, responsiveness and long-term client partnership.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">What Drives Us</span>
+      <h2>Core Values</h2>
+      <p>Six pillars that shape every deployment, every shift, every client relationship.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card value-card" data-reveal>
+        <h3><i class="fa-solid fa-scale-balanced" style="color:var(--gold-600); margin-right:8px;"></i>Integrity</h3>
+        <p>We can always be trusted to do the right thing.</p>
+      </div>
+      <div class="card value-card" data-reveal>
+        <h3><i class="fa-solid fa-users" style="color:var(--gold-600); margin-right:8px;"></i>Best People</h3>
+        <p>We employ the best people, develop their competence, and inspire them to live our values.</p>
+      </div>
+      <div class="card value-card" data-reveal>
+        <h3><i class="fa-solid fa-handshake" style="color:var(--gold-600); margin-right:8px;"></i>Team Work &amp; Collaboration</h3>
+        <p>We collaborate for the benefit of our clients as a whole.</p>
+      </div>
+      <div class="card value-card" data-reveal>
+        <h3><i class="fa-solid fa-heart-circle-check" style="color:var(--gold-600); margin-right:8px;"></i>Customer Focus</h3>
+        <p>We build close, open relationships that generate trust and mutual benefit.</p>
+      </div>
+      <div class="card value-card" data-reveal>
+        <h3><i class="fa-solid fa-chart-line" style="color:var(--gold-600); margin-right:8px;"></i>Performance</h3>
+        <p>We challenge ourselves to improve year-on-year and build long-term sustainability.</p>
+      </div>
+      <div class="card value-card" data-reveal>
+        <h3><i class="fa-solid fa-award" style="color:var(--gold-600); margin-right:8px;"></i>Expertise</h3>
+        <p>We develop and demonstrate expertise through an innovative, leading-edge approach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">What We Offer</span>
+      <h2>Security &amp; Facility Management Services</h2>
+      <p>A single point of contact for every service your premises needs — from guarding to housekeeping to payroll compliance.</p>
+    </div>
+    <div class="grid grid-3">
+      {% set home_services = [
+        ('fa-user-shield','Static Guarding','Trained guards stationed at entrances, receptions and critical points to protect assets and people.'),
+        ('fa-user-tie','Executive Protection','Discreet, professional personal security for executives and high-profile individuals.'),
+        ('fa-route','Mobile &amp; Night Patrolling','Scheduled and randomized patrols across your premises, day and night, with logged checkpoints.'),
+        ('fa-calendar-check','Event Security','Crowd management, access control and coordinated security for corporate and public events.'),
+        ('fa-broom','Housekeeping &amp; Facility','Trained housekeeping and pantry staff maintaining clean, well-run premises every day.'),
+        ('fa-file-invoice-dollar','Payroll Outsourcing &amp; Compliance','End-to-end staffing, payroll processing and statutory compliance for your workforce.'),
+      ] %}
+      {% for icon, title, desc in home_services %}
+      <div class="card service-card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid {{ icon }}"></i></div>
+        <h3>{{ title|safe }}</h3>
+        <p>{{ desc }}</p>
+        <a href="{{ url_for('services') }}" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="text-center" style="margin-top: var(--sp-4);">
+      <a href="{{ url_for('services') }}" class="btn btn-navy">View All Services <i class="fa-solid fa-arrow-right"></i></a>
+    </p>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section">
+  <div class="container split reverse">
+    <div class="split-media">
+      <div class="viewfinder">
+        <span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-01.jpg') }}" alt="RSFM security and supervisory staff standing together at a corporate site">
+      </div>
+    </div>
+    <div data-reveal>
+      <span class="eyebrow">Key Differentiators</span>
+      <h2>Why corporates and communities choose RSFM</h2>
+      <ul class="checklist">
+        <li><i class="fa-solid fa-circle-check"></i> Single point of contact for all security and facility management services</li>
+        <li><i class="fa-solid fa-circle-check"></i> Guards, lady guards, armed guards, supervisors, inspectors and vigilance officers — all under one roof</li>
+        <li><i class="fa-solid fa-circle-check"></i> Stringent recruitment procedures through background checks</li>
+        <li><i class="fa-solid fa-circle-check"></i> 24-hour Quick Response Team across Bangalore</li>
+        <li><i class="fa-solid fa-circle-check"></i> Intense supervision by field officers for effective response</li>
+        <li><i class="fa-solid fa-circle-check"></i> Customized services and full statutory compliance</li>
+      </ul>
+      <a href="{{ url_for('about') }}" class="btn btn-navy">Our Approach <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section section--navy">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">Where We Work</span>
+      <h2>Industries We Serve</h2>
+    </div>
+    <div class="grid grid-4">
+      {% set industries_list = [
+        ('fa-building','Corporate Offices'), ('fa-industry','Manufacturing'), ('fa-house-chimney-medical','Hospitals'),
+        ('fa-graduation-cap','Education'), ('fa-city','Residential Communities'), ('fa-truck-fast','Logistics'),
+        ('fa-champagne-glasses','Event Organizers'), ('fa-store','Retail')
+      ] %}
+      {% for icon, name in industries_list %}
+      <div class="card" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.12); text-align:center;" data-reveal>
+        <i class="fa-solid {{ icon }}" style="color:var(--gold-400); font-size:26px; margin-bottom:10px; display:block;"></i>
+        <strong style="color:#fff; font-family:var(--font-heading); font-size:15px;">{{ name }}</strong>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">Client Confidence</span>
+      <h2>What Clients Say</h2>
+    </div>
+    <div class="grid grid-3">
+      <!-- Illustrative testimonials — replace with verified client quotes before launch -->
+      <div class="testimonial-card" data-reveal>
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="quote">RSFM's guards are punctual, well-groomed and genuinely alert. Their supervisor visits kept our facility team informed at every step.</p>
+        <div class="testimonial-author">
+          <span class="initials">FM</span>
+          <div><strong>Facility Manager</strong><span>Co-working Space, Bengaluru</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-reveal>
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="quote">Night patrolling reports arrive on time, every time. It's reassuring to have a control room that actually answers the phone at 2am.</p>
+        <div class="testimonial-author">
+          <span class="initials">RA</span>
+          <div><strong>Resident Association Secretary</strong><span>Gated Community</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-reveal>
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+        <p class="quote">Their housekeeping and pantry staff are reliable and well trained — one vendor for guarding and facility upkeep has simplified our operations.</p>
+        <div class="testimonial-author">
+          <span class="initials">OH</span>
+          <div><strong>Operations Head</strong><span>Technology Park</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="section--tight">
+  <div class="container">
+    <p class="text-center" style="font-family:var(--font-heading); font-weight:600; color:var(--navy-900); letter-spacing:0.05em; text-transform:uppercase; font-size:13px; margin-bottom:var(--sp-3);">Trusted By</p>
+    <div class="client-strip">
+      {% for client in ['GoodWorkLabs','GoodWorks Cowork','Unispace','Aquera Akasa','AEZION','Collab24','Collab Cubicles','Sunovaa','Khanal','Himalayan Natives','Prowork','Hutz','Lead IC Design'] %}
+      <span class="client-chip">{{ client }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h3>Join the RSFM team</h3>
+        <p>We're hiring disciplined, dependable people across security, housekeeping and supervisory roles.</p>
+      </div>
+      <a href="{{ url_for('careers') }}" class="btn btn-primary">View Openings <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT PREVIEW -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center;">
+      <div data-reveal>
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Talk to us about your security &amp; facility requirements</h2>
+        <p>Share your site details and our team will schedule a free survey within one business day.</p>
+        <div class="contact-row" style="margin-top:var(--sp-3);">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><strong>{{ company_address_line1 }}</strong><span>{{ company_address_line2 }}</span></div>
+        </div>
+        <div class="contact-row">
+          <i class="fa-solid fa-phone"></i>
+          <div><strong>Call Us</strong><span>{{ company_phone }} &nbsp;/&nbsp; {{ company_phone_2 }}</span></div>
+        </div>
+        <div class="contact-row">
+          <i class="fa-solid fa-envelope"></i>
+          <div><strong>Email Us</strong><span>{{ company_email }}</span></div>
+        </div>
+        <a href="{{ url_for('contact') }}" class="btn btn-navy" style="margin-top:var(--sp-2);">Go to Contact Page <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="viewfinder" data-reveal>
+        <span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-06.jpg') }}" alt="RSFM housekeeping and security team briefing in a meeting room">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

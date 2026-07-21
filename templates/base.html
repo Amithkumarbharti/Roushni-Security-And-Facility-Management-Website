@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{{ company_name }} | {{ company_tagline }}{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}Roushni Security & Facility Management (RSFM) delivers trained security guards, night patrolling, housekeeping and manpower outsourcing for corporates, residences and institutions across Bengaluru.{% endblock %}">
+<link rel="canonical" href="{{ request.url_root }}{{ request.path.lstrip('/') }}">
+<meta property="og:title" content="{{ company_name }}">
+<meta property="og:description" content="Trained security, facility management and manpower solutions across Bengaluru.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ url_for('static', filename='images/logo.png') }}">
+<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="{{ url_for('home') }}" class="brand">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="{{ company_short }} logo">
+      <span class="brand-text">
+        <strong>{{ company_short }}</strong>
+        <span>{{ company_tagline }}</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' }}">Home</a>
+      <a href="{{ url_for('about') }}" class="{{ 'active' if active_page == 'about' }}">About</a>
+      <a href="{{ url_for('services') }}" class="{{ 'active' if active_page == 'services' }}">Services</a>
+      <a href="{{ url_for('industries') }}" class="{{ 'active' if active_page == 'industries' }}">Industries</a>
+      <a href="{{ url_for('gallery') }}" class="{{ 'active' if active_page == 'gallery' }}">Gallery</a>
+      <a href="{{ url_for('careers') }}" class="{{ 'active' if active_page == 'careers' }}">Careers</a>
+      <a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' }}">Contact</a>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-sm">Get a Quote</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary btn-sm">Get a Quote</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container" style="padding-top: var(--sp-3);">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ 'success' if category == 'success' else 'error' }}">
+          <i class="fa-solid {{ 'fa-circle-check' if category == 'success' else 'fa-circle-exclamation' }}"></i>
+          <span>{{ message }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" alt="{{ company_short }} logo">
+          <strong>{{ company_short }}</strong>
+        </div>
+        <p style="font-size:14px; max-width:280px;">Roushni Security &amp; Facility Management provides trained security personnel, housekeeping staff and manpower outsourcing to corporates, residential communities and institutions across Bengaluru.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('services') }}">Services</a></li>
+          <li><a href="{{ url_for('industries') }}">Industries</a></li>
+          <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+          <li><a href="{{ url_for('careers') }}">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="{{ url_for('services') }}">Static Guarding</a></li>
+          <li><a href="{{ url_for('services') }}">Night Patrolling</a></li>
+          <li><a href="{{ url_for('services') }}">Housekeeping</a></li>
+          <li><a href="{{ url_for('services') }}">Staff Outsourcing</a></li>
+          <li><a href="{{ url_for('services') }}">Payroll Compliance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><i class="fa-solid fa-location-dot" style="color:var(--gold-500); margin-right:8px;"></i>{{ company_address_line1 }}, {{ company_address_line2 }}</li>
+          <li><i class="fa-solid fa-phone" style="color:var(--gold-500); margin-right:8px;"></i><a href="tel:{{ company_phone }}">{{ company_phone }}</a></li>
+          <li><i class="fa-solid fa-phone" style="color:var(--gold-500); margin-right:8px;"></i><a href="tel:{{ company_phone_2 }}">{{ company_phone_2 }}</a></li>
+          <li><i class="fa-solid fa-envelope" style="color:var(--gold-500); margin-right:8px;"></i><a href="mailto:{{ company_email }}">{{ company_email }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; {{ 2026 }} Roushni Security &amp; Facility Management. All rights reserved.</span>
+    <span>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </span>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

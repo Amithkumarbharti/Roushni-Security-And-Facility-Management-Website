@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% block title %}About Us | {{ company_name }}{% endblock %}
+{% block meta_description %}Learn about Roushni Security & Facility Management (RSFM) — our mission, values, training process and the quality standards behind our guarding and facility services in Bengaluru.{% endblock %}
+
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i> <span>About</span></div>
+    <h1>About RSFM</h1>
+    <p>A closer look at our story, our people, and the standards that guide every deployment.</p>
+  </div>
+</section>
+
+<!-- COMPANY OVERVIEW -->
+<section class="section">
+  <div class="container split">
+    <div class="split-media">
+      <div class="viewfinder">
+        <span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-03.jpg') }}" alt="RSFM security officers in uniform standing at attention outdoors">
+      </div>
+    </div>
+    <div data-reveal>
+      <span class="eyebrow">Our Story</span>
+      <h2>A security &amp; facility partner built on discipline</h2>
+      <p>Roushni Security and Facility Management (RSFM) is emerging as one of the leading security, cleaning and manpower solutions companies in Bangalore, India. We focus on Security Services, Night Patrolling, Facility Management, Payroll Outsourcing, Payroll Compliance and Staff Outsourcing — positioning RSFM as a professionally managed security, housekeeping and manpower service provider.</p>
+      <p>Strong workforces of well-trained security, housekeeping and pantry personnel render services round the clock towards one common objective: protecting assets, property and life.</p>
+      <p><strong>Registered Office:</strong> {{ company_address_line1 }}, {{ company_address_line2 }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="mv-grid">
+      <div class="mv-card mission" data-reveal>
+        <i class="fa-solid fa-bullseye"></i>
+        <h3>Mission</h3>
+        <p>"Provide assistance to people, authorities and companies in order to meet their demands for security, cleaning and facility management — as individuals or groups, on an everyday basis."</p>
+      </div>
+      <div class="mv-card vision" data-reveal>
+        <i class="fa-solid fa-eye"></i>
+        <h3>Vision</h3>
+        <p>To be Bengaluru's single point of contact for enterprise-grade security and facility management, recognised for discipline, responsiveness and long-term client partnership.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">Our Foundation</span>
+      <h2>The Values Behind Every Shift</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card value-card" data-reveal><h3><i class="fa-solid fa-scale-balanced" style="color:var(--gold-600); margin-right:8px;"></i>Integrity</h3><p>We can always be trusted to do the right thing.</p></div>
+      <div class="card value-card" data-reveal><h3><i class="fa-solid fa-users" style="color:var(--gold-600); margin-right:8px;"></i>Best People</h3><p>We employ the best people, develop their competence, and inspire them to live our values.</p></div>
+      <div class="card value-card" data-reveal><h3><i class="fa-solid fa-handshake" style="color:var(--gold-600); margin-right:8px;"></i>Team Work &amp; Collaboration</h3><p>We collaborate for the benefit of our clients as a whole.</p></div>
+      <div class="card value-card" data-reveal><h3><i class="fa-solid fa-heart-circle-check" style="color:var(--gold-600); margin-right:8px;"></i>Customer Focus</h3><p>Close, open relationships that generate trust and mutual benefit.</p></div>
+      <div class="card value-card" data-reveal><h3><i class="fa-solid fa-chart-line" style="color:var(--gold-600); margin-right:8px;"></i>Performance</h3><p>We challenge ourselves to improve year-on-year and build long-term sustainability.</p></div>
+      <div class="card value-card" data-reveal><h3><i class="fa-solid fa-award" style="color:var(--gold-600); margin-right:8px;"></i>Expertise</h3><p>An innovative, leading-edge approach to creating and delivering the right solution.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY PILLARS -->
+<section class="section section--gray">
+  <div class="container split reverse">
+    <div class="split-media">
+      <div class="viewfinder">
+        <span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-04.jpg') }}" alt="RSFM lady security guard standing on duty at a residential site">
+      </div>
+    </div>
+    <div data-reveal>
+      <span class="eyebrow">How We Deliver Quality</span>
+      <h2>Six pillars behind every deployment</h2>
+      <p>RSFM firmly believes the main criteria for providing quality security services are:</p>
+      <ul class="checklist">
+        <li><i class="fa-solid fa-circle-check"></i> Selection</li>
+        <li><i class="fa-solid fa-circle-check"></i> Training</li>
+        <li><i class="fa-solid fa-circle-check"></i> Supervision</li>
+        <li><i class="fa-solid fa-circle-check"></i> Post &amp; Site Instructions</li>
+        <li><i class="fa-solid fa-circle-check"></i> Corporate Response</li>
+        <li><i class="fa-solid fa-circle-check"></i> Client Feedback</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING TIMELINE -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Training &amp; Quality Process</span>
+      <h2>PSARA-Compliant Training, Start to Finish</h2>
+      <p>RSFM policy mandates that every employee undertake a comprehensive training course before deployment, fulfilling PSARA Act requirements. Beyond basic guarding skills, staff are taught First Aid, fire fighting and self-defense, with training continuing progressively throughout their careers.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step" data-step="1" data-reveal>
+        <h4>Basic Training</h4>
+        <p>Foundational guarding skills, First Aid, fire fighting and self-defense before any deployment.</p>
+      </div>
+      <div class="timeline-step" data-step="2" data-reveal>
+        <h4>Refresher Training</h4>
+        <p>Ongoing sessions that keep skills current and reinforce discipline standards.</p>
+      </div>
+      <div class="timeline-step" data-step="3" data-reveal>
+        <h4>Continuous Educational &amp; Skill Development</h4>
+        <p>Progressive programs designed around evolving client and site requirements.</p>
+      </div>
+      <div class="timeline-step" data-step="4" data-reveal>
+        <h4>Management Development Programs</h4>
+        <p>Leadership and supervisory training for inspectors, supervisors and vigilance officers.</p>
+      </div>
+      <div class="timeline-step" data-step="5" data-reveal>
+        <h4>On-the-Job Training at Client Premises</h4>
+        <p>Site-specific orientation so every guard understands the post they're protecting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPERVISION / POST INSTRUCTIONS / CLIENT RELATIONS -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid fa-walkie-talkie"></i></div>
+        <h3>Supervision</h3>
+        <p>A strong Operations team of Managers, Security Officers and Patrolling Supervisors — equipped with radio communications and mobile phones — carries out checks on all assignments and guards on a 24x7 basis.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid fa-clipboard-list"></i></div>
+        <h3>Post &amp; Site Instructions</h3>
+        <p>Before any assignment, our Operations team visits the site to analyse requirements and design a setup. A detailed Charter of Duties, client expectations and emergency procedures are documented in consultation with the client.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="icon-badge"><i class="fa-solid fa-comments"></i></div>
+        <h3>Client Relations &amp; Feedback</h3>
+        <p>Acquiring, winning, retaining and growing — customer care has always been an RSFM tradition. We run a regular client feedback system to guide corrective action and continuous improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM GALLERY -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" style="justify-content:center;">Our People</span>
+      <h2>The Team On the Ground</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="viewfinder" data-reveal><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-05.jpg') }}" alt="RSFM housekeeping, pantry and security staff on duty indoors"></div>
+      <div class="viewfinder" data-reveal><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-06.jpg') }}" alt="RSFM housekeeping and security staff lined up on duty in a corridor"></div>
+      <div class="viewfinder" data-reveal><span class="vf-corner tr"></span><span class="vf-corner bl"></span>
+        <img src="{{ url_for('static', filename='images/staff/team-02.jpg') }}" alt="RSFM guards standing in formation outside a residential property"></div>
+    </div>
+    <p class="text-center" style="margin-top:var(--sp-4);">
+      <a href="{{ url_for('gallery') }}" class="btn btn-navy">View Full Gallery <i class="fa-solid fa-arrow-right"></i></a>
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--gray">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h3>Ready to raise the standard at your premises?</h3>
+        <p>Talk to our team about a customised security and facility plan.</p>
+      </div>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
